@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<toolkit:Popup
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+    x:Class="AppProyecto.Views.CustomAlertPopup"
+    Size="300,200"
+    CanBeDismissedByTappingOutsideOfPopup="False">
+
+    <Frame
+        x:Name="FrameContainer"
+        CornerRadius="15"
+        Padding="20"
+        HasShadow="True"
+        VerticalOptions="Center"
+        HorizontalOptions="Center"
+        BackgroundColor="White">
+
+        <VerticalStackLayout Spacing="15" HorizontalOptions="Center">
+            <Label
+                x:Name="MessageLabel"
+                Text="Mensaje de alerta"
+                FontAttributes="Bold"
+                FontSize="16"
+                HorizontalOptions="Center"
+                TextColor="Black" />
+
+            <Button
+                Text="Aceptar"
+                Clicked="OnAceptarClicked"
+                BackgroundColor="#007aff"
+                TextColor="White"
+                CornerRadius="10"
+                WidthRequest="100"
+                HorizontalOptions="Center" />
+        </VerticalStackLayout>
+    </Frame>
+</toolkit:Popup>

@@ -1,0 +1,232 @@
+﻿<ContentPage
+    x:Class="AppProyecto.Views.MainPage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    Title="Menu"
+    BackgroundColor="White">
+
+    <!-- Definición de recursos locales -->
+    <ContentPage.Resources>
+        <Style x:Key="MenuCard" TargetType="Frame">
+            <Setter Property="CornerRadius" Value="12"/>
+            <Setter Property="HasShadow" Value="True"/>
+            <Setter Property="Padding" Value="20"/>
+            <Setter Property="HeightRequest" Value="130"/>
+            <Setter Property="BackgroundColor" Value="Black"/>
+        </Style>
+
+        <Style x:Key="MenuLabel" TargetType="Label">
+            <Setter Property="FontAttributes" Value="Bold"/>
+            <Setter Property="FontSize" Value="14"/>
+            <Setter Property="TextColor" Value="#Black"/>
+            <Setter Property="HorizontalOptions" Value="Center"/>
+            <Setter Property="VerticalOptions" Value="Center"/>
+        </Style>
+    </ContentPage.Resources>
+
+    <ScrollView>
+        <Grid Margin="20" RowSpacing="20" ColumnSpacing="20">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <!-- Fila 1 -->
+            <Frame Grid.Row="0" Grid.Column="0" 
+                   Style="{StaticResource MenuCard}">
+                <VerticalStackLayout Spacing="10" 
+                                    HorizontalOptions="Center"
+                                    VerticalOptions="Center">
+                    <Image Source="box_type.png" 
+                           HeightRequest="40"
+                           WidthRequest="40"/>
+                    <Label Text="Tipo de Producto" 
+                           Style="{StaticResource MenuLabel}"/>
+                </VerticalStackLayout>
+                <Frame.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="OnTipoProductoClicked"/>
+                </Frame.GestureRecognizers>
+            </Frame>
+
+            <Frame Grid.Row="0" Grid.Column="1"
+                   Style="{StaticResource MenuCard}">
+                <VerticalStackLayout Spacing="10" 
+                                    HorizontalOptions="Center"
+                                    VerticalOptions="Center">
+                    <Image Source="product_add.png" 
+                           HeightRequest="40"
+                           WidthRequest="40"/>
+                    <Label Text="Registrar Producto" 
+                           Style="{StaticResource MenuLabel}"/>
+                </VerticalStackLayout>
+                <Frame.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="OnProductoClicked"/>
+                </Frame.GestureRecognizers>
+            </Frame>
+
+            <!-- Fila 2 -->
+            <Frame Grid.Row="1" Grid.Column="0"
+                   Style="{StaticResource MenuCard}">
+                <VerticalStackLayout Spacing="10" 
+                                    HorizontalOptions="Center"
+                                    VerticalOptions="Center">
+                    <Image Source="inventory.png" 
+                           HeightRequest="40"
+                           WidthRequest="40"/>
+                    <Label Text="Registrar Existencia" 
+                           Style="{StaticResource MenuLabel}"/>
+                </VerticalStackLayout>
+                <Frame.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="OnExistenciaClicked"/>
+                </Frame.GestureRecognizers>
+            </Frame>
+
+            <Frame Grid.Row="1" Grid.Column="1"
+                   Style="{StaticResource MenuCard}">
+                <VerticalStackLayout Spacing="10" 
+                                    HorizontalOptions="Center"
+                                    VerticalOptions="Center">
+                    <Image Source="user_type.png" 
+                           HeightRequest="40"
+                           WidthRequest="40"/>
+                    <Label Text="Tipo de Usuario" 
+                           Style="{StaticResource MenuLabel}"/>
+                </VerticalStackLayout>
+                <Frame.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="OnTipoUsuarioClicked"/>
+                </Frame.GestureRecognizers>
+            </Frame>
+
+            <!-- Fila 3 -->
+            <Frame Grid.Row="2" Grid.Column="0"
+                   Style="{StaticResource MenuCard}">
+                <VerticalStackLayout Spacing="10" 
+                                    HorizontalOptions="Center"
+                                    VerticalOptions="Center">
+                    <Image Source="folder_open.png" 
+                           HeightRequest="40"
+                           WidthRequest="40"/>
+                    <Label Text="Abrir carpeta BD" 
+                           Style="{StaticResource MenuLabel}"/>
+                </VerticalStackLayout>
+                <Frame.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="AbrirCarpetaBD_Clicked"/>
+                </Frame.GestureRecognizers>
+            </Frame>
+
+            <Frame Grid.Row="2" Grid.Column="1"
+                   Style="{StaticResource MenuCard}">
+                <VerticalStackLayout Spacing="10" 
+                                    HorizontalOptions="Center"
+                                    VerticalOptions="Center">
+                    <Image Source="customer.png" 
+                           HeightRequest="40"
+                           WidthRequest="40"/>
+                    <Label Text="Registrar Cliente" 
+                           Style="{StaticResource MenuLabel}"/>
+                </VerticalStackLayout>
+                <Frame.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="OnClienteClicked"/>
+                </Frame.GestureRecognizers>
+            </Frame>
+
+            <!-- Fila 4 -->
+            <Frame Grid.Row="3" Grid.Column="0"
+                   Style="{StaticResource MenuCard}">
+                <VerticalStackLayout Spacing="10" 
+                                    HorizontalOptions="Center"
+                                    VerticalOptions="Center">
+                    <Image Source="user_add.png" 
+                           HeightRequest="40"
+                           WidthRequest="40"/>
+                    <Label Text="Registrar Usuario" 
+                           Style="{StaticResource MenuLabel}"/>
+                </VerticalStackLayout>
+                <Frame.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="OnUsuarioClicked"/>
+                </Frame.GestureRecognizers>
+            </Frame>
+
+            <Frame Grid.Row="3" Grid.Column="1"
+                   Style="{StaticResource MenuCard}">
+                <VerticalStackLayout Spacing="10" 
+                                    HorizontalOptions="Center"
+                                    VerticalOptions="Center">
+                    <Image Source="shoppingcart.png" 
+                           HeightRequest="40"
+                           WidthRequest="40"/>
+                    <Label Text="Registrar venta" 
+                           Style="{StaticResource MenuLabel}"/>
+                </VerticalStackLayout>
+                <Frame.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="OnRegVentaClicked"/>
+                </Frame.GestureRecognizers>
+            </Frame>
+
+            <!-- Fila 5 -->
+            <Frame Grid.Row="4" Grid.Column="0"
+                   Style="{StaticResource MenuCard}">
+                <VerticalStackLayout Spacing="10" 
+                                    HorizontalOptions="Center"
+                                    VerticalOptions="Center">
+                    <Image Source="receipt.png" 
+                           HeightRequest="40"
+                           WidthRequest="40"/>
+                    <Label Text="Ver ticket" 
+                           Style="{StaticResource MenuLabel}"/>
+                </VerticalStackLayout>
+                <Frame.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="OnRegTicketClicked"/>
+                </Frame.GestureRecognizers>
+            </Frame>
+
+            <Frame Grid.Row="4" Grid.Column="1"
+                   Style="{StaticResource MenuCard}">
+                <VerticalStackLayout Spacing="10" 
+                                    HorizontalOptions="Center"
+                                    VerticalOptions="Center">
+                    <Image Source="package_check.png" 
+                           HeightRequest="40"
+                           WidthRequest="40"/>
+                    <Label Text="Validar embarque" 
+                           Style="{StaticResource MenuLabel}"/>
+                </VerticalStackLayout>
+                <Frame.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="OnVBClcked"/>
+                </Frame.GestureRecognizers>
+            </Frame>
+
+            <!-- Fila 6 -->
+            <Frame Grid.Row="5" Grid.Column="0"
+                   Style="{StaticResource MenuCard}">
+                <VerticalStackLayout Spacing="10" 
+                                    HorizontalOptions="Center"
+                                    VerticalOptions="Center">
+                    <Image Source="history.png" 
+                           HeightRequest="40"
+                           WidthRequest="40"/>
+                    <Label Text="Ver Ventas" 
+                           Style="{StaticResource MenuLabel}"/>
+                </VerticalStackLayout>
+                <Frame.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="OnVClicked"/>
+                </Frame.GestureRecognizers>
+            </Frame>
+
+            <!-- Espacio para futuras opciones -->
+            <Frame Grid.Row="5" Grid.Column="1"
+                   Style="{StaticResource MenuCard}"
+                   IsVisible="False">
+                <!-- Opción adicional reservada -->
+            </Frame>
+        </Grid>
+    </ScrollView>
+</ContentPage>

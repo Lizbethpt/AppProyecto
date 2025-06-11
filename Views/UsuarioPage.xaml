@@ -1,0 +1,38 @@
+﻿<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="AppProyecto.Views.UsuarioPage"
+             Title="Usuarios">
+    <ScrollView>
+        <VerticalStackLayout Padding="20" Spacing="10">
+            <Entry x:Name="IdEntry" Placeholder="ID" Keyboard="Numeric" Style="{StaticResource BaseEntry}"/>
+            <Entry x:Name="NombreEntry" Placeholder="Nombre de Usuario" Style="{StaticResource BaseEntry}"/>
+
+            <Picker x:Name="TipoUsuarioPicker"
+                    Title="Seleccionar Tipo"
+                    ItemDisplayBinding="{Binding Nombre}"
+                    Style="{StaticResource BasePicker}"/>
+
+            <Button Text="Guardar Usuario" Clicked="OnGuardarClicked" Style="{StaticResource PrimaryButton}"/>
+            <Button Text="Cargar Usuarios" Clicked="OnCargarUsuariosClicked" Style="{StaticResource SecondaryButton}"/>
+
+            <Label Text="Usuarios Registrados" Style="{StaticResource ListHeader}"/>
+
+            <ListView x:Name="usuariosListView" SeparatorColor="#EEE">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <Frame Style="{StaticResource CardView}">
+                                <HorizontalStackLayout Spacing="10">
+                                    <Label Text="{Binding Nombre}" 
+                                           FontAttributes="Bold"
+                                           HorizontalOptions="StartAndExpand"/>
+                                    <Label Text="{Binding TipoUsuarioNombre}"/>
+                                </HorizontalStackLayout>
+                            </Frame>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

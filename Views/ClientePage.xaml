@@ -1,0 +1,42 @@
+﻿<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+             x:Class="AppProyecto.Views.ClientePage"
+             Title="Clientes">
+    <ScrollView>
+        <VerticalStackLayout Padding="20" Spacing="10">
+            <Entry x:Name="IdEntry" Placeholder="ID" Keyboard="Numeric" Style="{StaticResource BaseEntry}"/>
+            <Entry x:Name="NombreEntry" Placeholder="Nombre" Style="{StaticResource BaseEntry}"/>
+            <Entry x:Name="RfcEntry" Placeholder="RFC" Style="{StaticResource BaseEntry}"/>
+            <Entry x:Name="DomicilioEntry" Placeholder="Domicilio" Style="{StaticResource BaseEntry}"/>
+            <Entry x:Name="CiudadEntry" Placeholder="Ciudad" Style="{StaticResource BaseEntry}"/>
+            <Entry x:Name="EstadoEntry" Placeholder="Estado" Style="{StaticResource BaseEntry}"/>
+            <Entry x:Name="TelefonoEntry" Placeholder="Teléfono" Style="{StaticResource BaseEntry}"/>
+            <Entry x:Name="CorreoEntry" Placeholder="Correo" Style="{StaticResource BaseEntry}"/>
+
+            <Button Text="Guardar Cliente" Clicked="OnGuardarClicked" Style="{StaticResource PrimaryButton}"/>
+            <Button Text="Cargar Clientes" Clicked="OnCargarClientesClicked" Style="{StaticResource SecondaryButton}"/>
+
+            <Label Text="Lista de Clientes" Style="{StaticResource ListHeader}"/>
+
+            <ListView x:Name="clientesListView" SeparatorColor="#EEE">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <Frame Style="{StaticResource CardView}">
+                                <VerticalStackLayout Spacing="5">
+                                    <Label Text="{Binding Nombre}" FontAttributes="Bold" FontSize="16" TextColor="{StaticResource Primary}"/>
+                                    <Label Text="{Binding RFC}" TextColor="{StaticResource DarkGray}"/>
+                                        <Label Text="{Binding Domicilio}" TextColor="{StaticResource DarkGray}"/>
+                                        <Label Text="{Binding Ciudad}, {Binding Estado}" TextColor="{StaticResource DarkGray}"/>
+                                        <Label Text="{Binding Telefono}" TextColor="{StaticResource DarkGray}"/>
+                                        <Label Text="{Binding Correo}" TextColor="{StaticResource DarkGray}"/>
+                                </VerticalStackLayout>
+                            </Frame>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

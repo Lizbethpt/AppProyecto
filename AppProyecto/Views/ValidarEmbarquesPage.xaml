@@ -1,0 +1,63 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+             x:Class="AppProyecto.Views.ValidarEmbarquePage"
+             Title="Validar Embarque"
+             BackgroundColor="White">
+
+	<ScrollView>
+		<VerticalStackLayout Padding="20" Spacing="15">
+
+			<Entry x:Name="VentaCodigoEntry" Placeholder="Código de venta" IsReadOnly="True"/>
+
+			<Button Text="Escanear venta"
+                    Clicked="OnEscanearVentaClicked"
+                    Style="{StaticResource PrimaryButton}" />
+
+			<Label Text="Artículos esperados:" FontAttributes="Bold"/>
+			<ListView x:Name="DetallesListView"
+                      IsVisible="False"
+                      HasUnevenRows="True"
+                      SeparatorVisibility="None">
+				<ListView.ItemTemplate>
+					<DataTemplate>
+						<ViewCell>
+							<Label Text="{Binding ProductoNombre}" />
+						</ViewCell>
+					</DataTemplate>
+				</ListView.ItemTemplate>
+			</ListView>
+
+			<Button x:Name="EscanearProductoButton"
+                    Text="Escanear producto"
+                    Clicked="OnEscanearProductoClicked"
+                    IsEnabled="False"
+                    Style="{StaticResource PrimaryButton}" />
+
+			<Label Text="Productos escaneados:" FontAttributes="Bold"/>
+			<ListView x:Name="EscaneadosListView"
+                      IsVisible="False"
+                      HasUnevenRows="True"
+                      SeparatorVisibility="None">
+				<ListView.ItemTemplate>
+					<DataTemplate>
+						<ViewCell>
+							<StackLayout Orientation="Horizontal" Padding="5">
+								<Label Text="{Binding ProductoNombre}" HorizontalOptions="StartAndExpand"/>
+								<Label Text="{Binding CantidadEscaneada}" TextColor="{Binding WarningColor}" HorizontalOptions="EndAndExpand"/>
+							</StackLayout>
+						</ViewCell>
+					</DataTemplate>
+				</ListView.ItemTemplate>
+			</ListView>
+
+			<Button x:Name="ValidarEmbarqueButton"
+                    Text="Validar embarque"
+                    Clicked="OnValidarEmbarqueClicked"
+                    IsVisible="False"
+                    Style="{StaticResource PrimaryButton}" />
+
+		</VerticalStackLayout>
+	</ScrollView>
+</ContentPage>
